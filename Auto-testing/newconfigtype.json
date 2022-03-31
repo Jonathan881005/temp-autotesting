@@ -1,0 +1,48 @@
+{
+	"apps": {
+		"nctu.winlab.test": {
+			"testInfo": {
+				"testType": "GroupTest",
+
+				"src_host": {
+					"id": "0",
+					"iface": "ens11f0:192.168.168.2",
+					"ifaceV": "ens11f0.1:192.168.169.2"
+				},
+				"dst_host": [
+					{
+						"id": "1",
+						"iface": "eno4:192.168.168.1",
+						"ifaceV": "eno4.1:192.168.169.1"
+					}
+				],
+				"testcase": [					
+					{
+						"matchfield": ["IN_PORT"],
+                        "groupid": "0",
+                        "grouptype": "All",
+                        "buckets":[
+                            {
+                                "treatment": ["SetEthSrc","OUTPUT"]
+                            },
+                            {
+                                "treatment": ["SetEthDst","OUTPUT"]
+                            }
+                        ]
+					}
+                    ,
+                    {
+						"matchfield": ["IN_PORT"],
+                        "groupid": "0",
+                        "grouptype": "Indirect",
+                        "buckets":[
+                            {
+                                "treatment": ["SetEthSrc","OUTPUT"]
+                            }
+                        ]
+					}
+				]
+			
+		}
+	}
+}

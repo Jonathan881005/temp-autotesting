@@ -1,0 +1,11 @@
+{
+	"apps": {
+		"nctu.winlab.test": {
+			"testInfo": {
+				"testType": "BasicTest",
+				"testcase": [
+				]
+			}
+		}
+	}
+}

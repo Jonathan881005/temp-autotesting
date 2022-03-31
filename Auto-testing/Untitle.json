@@ -1,0 +1,106 @@
+{
+	"flows": [
+	  {
+		"priority": 40000,
+		"timeout": 0,
+		"isPermanent": true,
+		"deviceId": "of:0000180f76fb126a",
+		"treatment": {
+		  "instructions": [
+			{
+			  "type": "GROUP",
+			  "groupId": "1"
+			}
+		  ]
+		},
+		"selector": {
+		  "criteria": [
+			{
+			  "type": "IN_PORT",
+			  "port": "1"
+			}
+		  ]
+		}
+	  }
+	]
+}
+
+{
+	"type": "INDIRECT",
+	"groupId": "1",
+	"buckets": [
+	  {
+		"treatment": {
+		  "instructions": [
+			{
+				"type": "L2MODIFICATION",
+				"subtype": "ETH_SRC"
+			},
+			{
+				"type": "OUTPUT",
+				"port": "2"
+			}
+		  ]
+		}
+	  }
+	]
+}
+
+
+{
+	"type": "ALL",
+	"appCookie": "0x1234abcd",
+	"groupId": "1",
+	"buckets": [
+	  {
+		"treatment": {
+		  "instructions": 
+		  [
+			{
+				"type": "L2MODIFICATION",
+				"subtype": "ETH_SRC",
+    			"mac":"00:00:00:00:00:01"
+			},
+			{
+				"type": "OUTPUT",
+				"port": "3"
+			}
+		  ]
+		}
+	  },
+	  	{
+		"treatment": {
+			"instructions":    
+			[
+				{
+					"type": "L2MODIFICATION",
+					"subtype": "ETH_SRC",
+					"mac":"00:00:00:00:00:02"
+				},
+				{
+					"type": "OUTPUT",
+					"port": "3"
+				}
+			]
+		}
+	  	}
+	]
+}
+
+{
+	"type": "INDIRECT",
+	"appCookie": "0x1234abcd",
+	"groupId": "1",
+	"buckets": [
+	  {
+		"treatment": {
+		  "instructions": [
+			{
+			  "type": "OUTPUT",
+			  "port": "2"
+			}
+		  ]
+		}
+	  }
+	]
+  }

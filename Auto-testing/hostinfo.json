@@ -1,0 +1,22 @@
+{
+	"apps": {
+		"project.dlink.sshclient": {
+			"SshClientConfig": {
+				"clientInfos": [
+					{
+						"ip": "140.113.131.172",
+						"username": "winlab",
+						"password": "winlabisgood",
+						"model": "SERVER"
+					},
+					{
+						"ip": "140.113.131.147",
+						"username": "dlinktest2",
+						"password": "admin",
+						"model": "SERVER"
+					}
+				]
+			}
+		}
+	}
+}
